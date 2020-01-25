@@ -1,12 +1,12 @@
-# GIthub Actions Workflows
+# Github Actions Workflows
 
-Collection of GIthub Actions workflows
+Collection of Github Actions workflows
 
-## Create release and add commit history as release details
+## Create Github release with commit history as details
 
 [create-release.yml](/create-release.yml)
 
-Creates Github release on pushing a tag with commit history in format of:
+Creates GitHub release and adds commit history as release details on pushing a tag with commit history in format of:
 
 ```md
 ## Commits
