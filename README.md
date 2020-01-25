@@ -6,4 +6,11 @@ Collection of GIthub Actions workflows
 
 [create-release.yml](/.github/workflows/create-release.yml)
 
-TODO Body
+Creates Github release on pushing a tag with commit history in format of
+
+```md
+## Commits
+
+- 2a0a657 commit message - committer name
+- 464d8ff commit message - committer name
+```
