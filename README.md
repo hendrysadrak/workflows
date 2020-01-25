@@ -1,2 +1,3 @@
 # workflows
-Collection of GIthub Actions workflows 
+
+Collection of GIthub Actions workflows
