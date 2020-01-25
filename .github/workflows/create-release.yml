@@ -15,18 +15,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          # Number of commits to fetch. 0 indicates all history.
-          fetch-depth: 0
           ref: ${{ github.ref }}
 
-      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      - run: git fetch --prune --unshallow
 
       - id: git-history
         run: |
           # get previous tag
           REF=$(git describe --abbrev=0 ${{ github.ref }}^)
           # commits between now and previous tag
-          echo "::set-output name=text::$(git log --pretty=format:"- %h %s - %cn" ${{ github.ref }}...$REF^)"
+          echo "::set-output name=text::$(git log --pretty=format:"- %h %s - %cn" ${{ github.ref }}...refs/tags/$REF^)"
 
       - name: Create Release
         uses: actions/create-release@v1
