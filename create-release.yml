@@ -1,0 +1,32 @@
+# https://github.com/actions/create-release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - id: git-history
+        run: echo "::set-output name=text::$(git log --pretty=format:"- %h %s - %cn" HEAD...${{ github.ref }}^)"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ## Commits
+            ${{ steps.git-history.outputs.text }}
+          draft: false
+          prerelease: false
