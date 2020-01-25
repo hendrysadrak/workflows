@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          # Number of commits to fetch. 0 indicates all history.
+          fetch-depth: 0
 
       - id: git-history
         run: |
