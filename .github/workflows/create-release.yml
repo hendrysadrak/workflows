@@ -17,9 +17,8 @@ jobs:
         with:
           # Number of commits to fetch. 0 indicates all history.
           fetch-depth: 0
-          ref: ${{ github.ref }}
 
-      - run: git fetch --tags --unshallow
+      - run: git fetch --tags
 
       - id: git-history
         run: |
