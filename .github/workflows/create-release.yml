@@ -23,7 +23,7 @@ jobs:
           # get previous tag
           REF=$(git describe --abbrev=0 ${{ github.ref }}^)
           # commits between now and previous tag
-          echo "::set-output name=text::$(git log --pretty=format:"- %h %s - %cn" HEAD...$REF^)"
+          echo "::set-output name=text::$(git log --pretty=format:"- %h %s - %cn" ${{ github.ref }}...$REF^)"
 
       - name: Create Release
         uses: actions/create-release@v1
