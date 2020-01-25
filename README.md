@@ -2,6 +2,8 @@
 
 Collection of GIthub Actions workflows
 
+## Create release and add commit history as release details
+
 /create-release.yml
 
-## Create release and add commit history as release details
+TODO Body
