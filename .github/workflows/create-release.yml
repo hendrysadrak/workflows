@@ -19,6 +19,8 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+
       - id: git-history
         run: |
           # get previous tag
